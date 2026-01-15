@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://novacareclinic.com/sitemap.xml',
+    sitemap: 'https://novacareclinicllc.com/sitemap.xml',
   };
 }

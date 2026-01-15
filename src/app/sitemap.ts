@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://novacareclinic.com';
+  const baseUrl = 'https://novacareclinicllc.com';
   const currentDate = new Date();
 
   return [

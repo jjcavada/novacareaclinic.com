@@ -9,7 +9,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL('https://novacareclinic.com'),
+  metadataBase: new URL('https://novacareclinicllc.com'),
   title: {
     default: 'NovaCare Clinic - Compassionate Behavioral Health Care',
     template: '%s | NovaCare Clinic',
@@ -34,7 +34,7 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'NovaCare Clinic',
-    url: 'https://novacareclinic.com',
+    url: 'https://novacareclinicllc.com',
     images: [
       {
         url: '/assets/images/og-image.jpg',
@@ -56,7 +56,7 @@ const jsonLd = {
   '@type': 'MedicalClinic',
   name: 'NovaCare Clinic',
   description: 'Quality mental health services in Phoenix, Arizona. Professional behavioral health care regardless of your ability to pay. Crisis support available 24/7.',
-  url: 'https://novacareclinic.com',
+  url: 'https://novacareclinicllc.com',
   telephone: '(602) 555-0123',
   address: {
     '@type': 'PostalAddress',
@@ -91,6 +91,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Core Web Vitals Optimizations */}
+        {/* Preconnect to external image domains for faster loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://img.rocket.new" />
+        <link rel="preconnect" href="https://static.rocket.new" />
+
+        {/* DNS Prefetch for additional external resources */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.pexels.com" />
+        <link rel="dns-prefetch" href="https://cdn.pixabay.com" />
+
+        {/* Preload critical hero image for LCP optimization */}
+        <link
+          rel="preload"
+          href="/assets/images/Heropagefinal.jpeg"
+          as="image"
+          type="image/jpeg"
+        />
+      </head>
       <body>
         <div className="min-h-screen flex flex-col">
           <main className="flex-grow">
