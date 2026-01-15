@@ -63,9 +63,9 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
           <Icon name="ShieldCheckIcon" size={32} className="text-primary-foreground" />
         </div>
-        <h2 className="font-headline text-2xl font-semibold text-foreground mb-2">
+        <h1 className="font-headline text-2xl font-semibold text-foreground mb-2">
           Secure Patient Login
-        </h2>
+        </h1>
         <p className="font-body text-muted-foreground">
           Access your medical records and appointments
         </p>
@@ -198,7 +198,7 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
       </form>
 
       <div className="mt-8 p-4 bg-bg-light rounded-lg">
-        <h4 className="font-headline font-semibold text-sm text-foreground mb-2">Demo Credentials:</h4>
+        <h2 className="font-headline font-semibold text-sm text-foreground mb-2">Demo Credentials:</h2>
         <div className="font-body text-sm text-muted-foreground space-y-1">
           <p>Email: {mockCredentials.email}</p>
           <p>Password: {mockCredentials.password}</p>
