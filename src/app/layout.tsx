@@ -1,7 +1,11 @@
 import React from 'react';
+import Script from 'next/script';
 import Footer from '@/components/common/Footer';
 import PageTransition from '@/components/common/PageTransition';
 import '../styles/globals.css';
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = 'G-MMS1K6Z057';
 
 export const viewport = {
   width: 'device-width',
@@ -127,7 +131,28 @@ export default function RootLayout({
         />
 
         <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovacarec5032back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.10" />
-        <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1" /></body>
+        <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1" />
+
+        {/* Google Analytics 4 */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+      </body>
     </html>
   );
 }
