@@ -1,0 +1,304 @@
+/* Typography - Distinctive & Warm */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Constants (DO NOT CHANGE) */
+    --color-brand-primary: #3b82f6;
+    --color-brand-secondary: #14b8a6;
+    --color-brand-accent: #a78bfa;
+
+    /* Enhanced Semantic Tokens */
+    --color-primary: #2563eb;
+    --color-primary-light: #dbeafe;
+    --color-primary-accessible: #1d4ed8;
+
+    --color-secondary: #0d9488;
+    --color-secondary-light: #ccfbf1;
+
+    --color-accent: #8b5cf6;
+    --color-accent-light: #ede9fe;
+
+    /* Warm Neutral Palette */
+    --color-warm-50: #faf9f7;
+    --color-warm-100: #f5f3f0;
+    --color-warm-200: #e8e4de;
+    --color-warm-300: #d4cdc3;
+    --color-warm-400: #a69e94;
+    --color-warm-500: #857c72;
+    --color-warm-600: #6b6259;
+    --color-warm-700: #4a4239;
+    --color-warm-800: #2d2720;
+    --color-warm-900: #1a1612;
+
+    /* Backgrounds */
+    --color-bg-light: #faf9f7;
+    --color-bg-white: #ffffff;
+    --color-bg-cream: #fefdfb;
+
+    /* Text */
+    --color-text-charcoal: #2d2720;
+    --color-text-gray: #6b6259;
+    --color-text-muted: #a69e94;
+
+    /* Support */
+    --color-border: #e8e4de;
+    --color-border-light: #f5f3f0;
+
+    /* Gradients */
+    --gradient-healing: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 50%, #f0f9ff 100%);
+    --gradient-warm: linear-gradient(135deg, #fefdfb 0%, #faf9f7 100%);
+    --gradient-card: linear-gradient(180deg, #ffffff 0%, #faf9f7 100%);
+    --gradient-accent: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px rgba(45, 39, 32, 0.08);
+    --shadow-lift: 0 12px 40px -12px rgba(45, 39, 32, 0.15);
+    --shadow-glow: 0 0 40px -10px rgba(37, 99, 235, 0.2);
+
+    /* Timing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+    /* Font Families */
+    --font-headline: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Global body font */
+  html, body {
+    font-family: var(--font-body) !important;
+    color: var(--color-text-charcoal);
+    background: var(--gradient-warm);
+    min-height: 100vh;
+  }
+
+  /* All headings use serif display font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline) !important;
+    color: var(--color-text-charcoal);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  /* All other text elements use body font */
+  p, span, a, li, td, th, label, input, textarea, select, button, div {
+    font-family: var(--font-body);
+  }
+
+  /* Ensure buttons use body font */
+  button, [type="button"], [type="submit"], [type="reset"] {
+    font-family: var(--font-body);
+  }
+
+  /* Form elements */
+  input, textarea, select {
+    font-family: var(--font-body);
+  }
+
+  /* Accessibility & Mobile Utilities */
+  .tap-target-44 {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@layer components {
+  /* Organic Card Style */
+  .card-organic {
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border-light);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.5s var(--ease-out-expo);
+    overflow: hidden;
+  }
+
+  .card-organic:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-4px);
+    border-color: var(--color-border);
+  }
+
+  /* Floating Label Effect */
+  .floating-badge {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium;
+    font-family: var(--font-body);
+    background: var(--color-bg-cream);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 2px 8px -2px rgba(45, 39, 32, 0.06);
+    transition: all 0.3s var(--ease-out-expo);
+  }
+
+  .floating-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -4px rgba(45, 39, 32, 0.1);
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Organic Button */
+  .btn-organic {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium;
+    font-family: var(--font-body) !important;
+    border-radius: 9999px;
+    transition: all 0.4s var(--ease-out-expo);
+    overflow: hidden;
+  }
+
+  .btn-organic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out-expo);
+  }
+
+  .btn-organic-primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-organic-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-organic-primary:hover::before {
+    opacity: 1;
+  }
+
+  .btn-organic-secondary {
+    background: var(--color-bg-cream);
+    color: var(--color-text-charcoal);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-organic-secondary:hover {
+    background: var(--color-bg-white);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  /* Subtle Background Pattern */
+  .bg-healing-pattern {
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(13, 148, 136, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.02) 0%, transparent 70%);
+  }
+
+  /* Image Container with Organic Shape */
+  .image-organic {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem 1.25rem 0 0;
+  }
+
+  .image-organic::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Legacy transition class support */
+  .transition-healing {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-micro {
+    transition: all 0.15s ease-out;
+  }
+}
+
+@layer utilities {
+  /* Staggered Animation Delays */
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+  .animate-delay-700 { animation-delay: 700ms; }
+  .animate-delay-800 { animation-delay: 800ms; }
+
+  /* Fade Up Animation */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s var(--ease-out-expo) forwards;
+    opacity: 0;
+  }
+
+  /* Scale In Animation */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s var(--ease-out-expo) forwards;
+    opacity: 0;
+  }
+
+  /* Soft Pulse */
+  @keyframes softPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .animate-soft-pulse {
+    animation: softPulse 2s ease-in-out infinite;
+  }
+
+  /* Gentle Pulse */
+  @keyframes gentlePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.95; transform: scale(1.02); }
+  }
+
+  .animate-gentle-pulse {
+    animation: gentlePulse 2s ease-in-out infinite;
+  }
+}
