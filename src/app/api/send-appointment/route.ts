@@ -3,6 +3,18 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Email template styles
+const styles = {
+  primary: '#1a4a3a',
+  primaryLight: '#2d5a4a',
+  accent: '#c9a86c',
+  cream: '#faf8f5',
+  warmGray: '#f5f2ed',
+  text: '#2c3e50',
+  textLight: '#5a6c7d',
+  success: '#059669',
+};
+
 interface AppointmentData {
   type: string;
   date: string;
@@ -42,6 +54,15 @@ const appointmentTypeLabels: Record<string, string> = {
   'crisis': 'Crisis Consultation'
 };
 
+const appointmentTypeIcons: Record<string, string> = {
+  'initial-consultation': '🩺',
+  'follow-up': '🔄',
+  'therapy': '💭',
+  'medication': '💊',
+  'telehealth': '🖥️',
+  'crisis': '🆘'
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body: AppointmentData = await request.json();
@@ -54,140 +75,255 @@ export async function POST(request: NextRequest) {
       day: 'numeric'
     });
 
+    const shortDate = new Date(date).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
+    });
+
     // Send notification email to clinic
     await resend.emails.send({
       from: 'NovaCare Clinic <noreply@novacareclinicllc.com>',
       to: ['info@novacareclinicllc.com'],
-      subject: `New Appointment Request: ${patientInfo.firstName} ${patientInfo.lastName} - ${formattedDate}`,
+      subject: `📅 New Appointment: ${patientInfo.firstName} ${patientInfo.lastName} - ${shortDate} at ${time}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background-color: #2d5a4a; padding: 20px; text-align: center;">
-            <h1 style="color: white; margin: 0;">New Appointment Request</h1>
-          </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; background-color: ${styles.warmGray}; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: ${styles.warmGray}; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
 
-          <div style="padding: 30px; background-color: #f9f7f4;">
-            <div style="background-color: #fef3c7; border: 1px solid #f59e0b; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-              <strong style="color: #92400e;">Action Required:</strong> Please review and assign a provider for this appointment.
-            </div>
+                  <!-- Header -->
+                  <tr>
+                    <td style="background: linear-gradient(135deg, ${styles.primary} 0%, ${styles.primaryLight} 100%); padding: 0;">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="padding: 32px 40px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td>
+                                  <div style="font-size: 28px; font-weight: 300; color: #ffffff; letter-spacing: -0.5px;">
+                                    Nova<span style="font-weight: 600;">Care</span>
+                                  </div>
+                                  <div style="font-size: 11px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px;">
+                                    Mental Health Clinic
+                                  </div>
+                                </td>
+                                <td align="right">
+                                  <div style="background-color: ${styles.accent}; color: ${styles.primary}; padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                                    ${patientInfo.isNewPatient ? 'New Patient' : 'Returning'}
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 0 40px 32px 40px;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 400;">
+                              New Appointment Request
+                            </h1>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <h2 style="color: #2d5a4a; border-bottom: 2px solid #2d5a4a; padding-bottom: 10px;">Appointment Details</h2>
+                  <!-- Action Required Banner -->
+                  <tr>
+                    <td style="background-color: #fffbeb; padding: 16px 40px; border-bottom: 1px solid #fde68a;">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td>
+                            <span style="font-size: 18px; margin-right: 8px;">⚡</span>
+                            <span style="color: #92400e; font-weight: 600; font-size: 14px;">ACTION REQUIRED:</span>
+                            <span style="color: #92400e; font-size: 14px;"> Please assign a provider for this appointment.</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold; width: 40%;">Type:</td>
-                <td style="padding: 10px 0;">${appointmentTypeLabels[type] || type}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Date:</td>
-                <td style="padding: 10px 0;">${formattedDate}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Time:</td>
-                <td style="padding: 10px 0;">${time}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Format:</td>
-                <td style="padding: 10px 0;">${appointmentMode === 'telehealth' ? 'Telehealth (Video Call)' : 'In-Person Visit'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Patient Type:</td>
-                <td style="padding: 10px 0;">${patientInfo.isNewPatient ? 'New Patient' : 'Returning Patient'}</td>
-              </tr>
-            </table>
+                  <!-- Appointment Details Card -->
+                  <tr>
+                    <td style="padding: 32px 40px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(145deg, ${styles.cream} 0%, #ffffff 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.04);">
+                        <tr>
+                          <td style="padding: 24px;">
+                            <!-- Date/Time Hero -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 24px;">
+                              <tr>
+                                <td width="80" style="vertical-align: top;">
+                                  <div style="width: 70px; height: 70px; background-color: ${styles.primary}; border-radius: 12px; text-align: center; padding-top: 8px;">
+                                    <div style="font-size: 11px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px;">${new Date(date).toLocaleDateString('en-US', { month: 'short' })}</div>
+                                    <div style="font-size: 28px; color: #ffffff; font-weight: 700; line-height: 1;">${new Date(date).getDate()}</div>
+                                  </div>
+                                </td>
+                                <td style="vertical-align: middle; padding-left: 16px;">
+                                  <div style="font-size: 20px; color: ${styles.text}; font-weight: 600; margin-bottom: 4px;">${formattedDate}</div>
+                                  <div style="font-size: 16px; color: ${styles.primaryLight}; font-weight: 500;">${time}</div>
+                                </td>
+                              </tr>
+                            </table>
 
-            <h2 style="color: #2d5a4a; border-bottom: 2px solid #2d5a4a; padding-bottom: 10px;">Patient Information</h2>
+                            <!-- Appointment Type & Format -->
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td width="50%" style="padding-right: 8px;">
+                                  <div style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; padding: 16px;">
+                                    <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Type</div>
+                                    <div style="font-size: 14px; color: ${styles.text}; font-weight: 500;">
+                                      <span style="margin-right: 6px;">${appointmentTypeIcons[type] || '📋'}</span>
+                                      ${appointmentTypeLabels[type] || type}
+                                    </div>
+                                  </div>
+                                </td>
+                                <td width="50%" style="padding-left: 8px;">
+                                  <div style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; padding: 16px;">
+                                    <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Format</div>
+                                    <div style="font-size: 14px; color: ${styles.text}; font-weight: 500;">
+                                      <span style="margin-right: 6px;">${appointmentMode === 'telehealth' ? '🖥️' : '🏥'}</span>
+                                      ${appointmentMode === 'telehealth' ? 'Telehealth' : 'In-Person'}
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold; width: 40%;">Name:</td>
-                <td style="padding: 10px 0;">${patientInfo.firstName} ${patientInfo.lastName}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Email:</td>
-                <td style="padding: 10px 0;"><a href="mailto:${patientInfo.email}">${patientInfo.email}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Phone:</td>
-                <td style="padding: 10px 0;"><a href="tel:${patientInfo.phone}">${patientInfo.phone}</a></td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Date of Birth:</td>
-                <td style="padding: 10px 0;">${patientInfo.dateOfBirth || 'Not provided'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Gender:</td>
-                <td style="padding: 10px 0;">${patientInfo.gender || 'Not provided'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Address:</td>
-                <td style="padding: 10px 0;">${patientInfo.address ? `${patientInfo.address}, ${patientInfo.city}, ${patientInfo.state} ${patientInfo.zipCode}` : 'Not provided'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Preferred Language:</td>
-                <td style="padding: 10px 0;">${patientInfo.preferredLanguage || 'English'}</td>
-              </tr>
-            </table>
+                  <!-- Patient Info Section -->
+                  <tr>
+                    <td style="padding: 0 40px;">
+                      <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,0,0,0.06);">Patient Information</div>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: ${styles.cream}; border-radius: 12px;">
+                        <tr>
+                          <td style="padding: 20px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td style="padding-bottom: 16px;">
+                                  <div style="font-size: 18px; color: ${styles.text}; font-weight: 600;">${patientInfo.firstName} ${patientInfo.lastName}</div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                      <td width="50%" style="padding-bottom: 12px;">
+                                        <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px;">Email</div>
+                                        <a href="mailto:${patientInfo.email}" style="color: ${styles.primaryLight}; text-decoration: none; font-size: 13px;">${patientInfo.email}</a>
+                                      </td>
+                                      <td width="50%" style="padding-bottom: 12px;">
+                                        <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px;">Phone</div>
+                                        <a href="tel:${patientInfo.phone}" style="color: ${styles.text}; text-decoration: none; font-size: 13px;">${patientInfo.phone}</a>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td width="50%">
+                                        <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px;">DOB</div>
+                                        <div style="color: ${styles.text}; font-size: 13px;">${patientInfo.dateOfBirth || '—'}</div>
+                                      </td>
+                                      <td width="50%">
+                                        <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px;">Insurance</div>
+                                        <div style="color: ${styles.text}; font-size: 13px;">${patientInfo.insuranceProvider || '—'}</div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <h2 style="color: #2d5a4a; border-bottom: 2px solid #2d5a4a; padding-bottom: 10px;">Emergency Contact</h2>
+                  <!-- Reason for Visit -->
+                  ${patientInfo.reasonForVisit ? `
+                  <tr>
+                    <td style="padding: 24px 40px 0 40px;">
+                      <div style="font-size: 11px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px;">Reason for Visit</div>
+                      <div style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-left: 4px solid ${styles.accent}; border-radius: 8px; padding: 16px;">
+                        <p style="margin: 0; color: ${styles.text}; font-size: 14px; line-height: 1.6;">
+                          ${patientInfo.reasonForVisit.replace(/\n/g, '<br>')}
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  ` : ''}
 
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold; width: 40%;">Name:</td>
-                <td style="padding: 10px 0;">${patientInfo.emergencyContact || 'Not provided'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Phone:</td>
-                <td style="padding: 10px 0;">${patientInfo.emergencyPhone || 'Not provided'}</td>
-              </tr>
-            </table>
+                  <!-- Clinical Notes Grid -->
+                  <tr>
+                    <td style="padding: 24px 40px;">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="50%" style="padding-right: 8px; vertical-align: top;">
+                            <div style="background-color: ${styles.cream}; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+                              <div style="font-size: 10px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Medications</div>
+                              <div style="font-size: 13px; color: ${styles.text};">${patientInfo.currentMedications || 'None reported'}</div>
+                            </div>
+                            <div style="background-color: ${styles.cream}; border-radius: 8px; padding: 14px;">
+                              <div style="font-size: 10px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Previous Treatment</div>
+                              <div style="font-size: 13px; color: ${styles.text};">${patientInfo.previousTreatment || 'None reported'}</div>
+                            </div>
+                          </td>
+                          <td width="50%" style="padding-left: 8px; vertical-align: top;">
+                            <div style="background-color: ${styles.cream}; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+                              <div style="font-size: 10px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Allergies</div>
+                              <div style="font-size: 13px; color: ${patientInfo.allergies ? '#dc2626' : styles.text}; font-weight: ${patientInfo.allergies ? '500' : 'normal'};">${patientInfo.allergies || 'None reported'}</div>
+                            </div>
+                            <div style="background-color: ${styles.cream}; border-radius: 8px; padding: 14px;">
+                              <div style="font-size: 10px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">Emergency Contact</div>
+                              <div style="font-size: 13px; color: ${styles.text};">${patientInfo.emergencyContact || '—'}</div>
+                              <div style="font-size: 12px; color: ${styles.textLight};">${patientInfo.emergencyPhone || ''}</div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <h2 style="color: #2d5a4a; border-bottom: 2px solid #2d5a4a; padding-bottom: 10px;">Insurance Information</h2>
+                  ${patientInfo.accessibilityNeeds ? `
+                  <!-- Accessibility Alert -->
+                  <tr>
+                    <td style="padding: 0 40px 24px 40px;">
+                      <div style="background-color: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 16px;">
+                        <div style="font-size: 11px; color: #92400e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600;">♿ Accessibility Needs</div>
+                        <div style="font-size: 14px; color: #92400e;">${patientInfo.accessibilityNeeds}</div>
+                      </div>
+                    </td>
+                  </tr>
+                  ` : ''}
 
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold; width: 40%;">Provider:</td>
-                <td style="padding: 10px 0;">${patientInfo.insuranceProvider || 'Not provided'}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px 0; font-weight: bold;">Policy Number:</td>
-                <td style="padding: 10px 0;">${patientInfo.policyNumber || 'Not provided'}</td>
-              </tr>
-            </table>
+                  <!-- Footer -->
+                  <tr>
+                    <td style="background-color: ${styles.cream}; padding: 24px 40px; border-top: 1px solid rgba(0,0,0,0.06);">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center">
+                            <p style="margin: 0; color: ${styles.textLight}; font-size: 12px;">
+                              Appointment booked via NovaCare Clinic website
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <h2 style="color: #2d5a4a; border-bottom: 2px solid #2d5a4a; padding-bottom: 10px;">Clinical Information</h2>
-
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-              <p style="margin: 0 0 5px 0;"><strong>Reason for Visit:</strong></p>
-              <p style="margin: 0; color: #666;">${patientInfo.reasonForVisit || 'Not provided'}</p>
-            </div>
-
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-              <p style="margin: 0 0 5px 0;"><strong>Previous Mental Health Treatment:</strong></p>
-              <p style="margin: 0; color: #666;">${patientInfo.previousTreatment || 'None reported'}</p>
-            </div>
-
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-              <p style="margin: 0 0 5px 0;"><strong>Current Medications:</strong></p>
-              <p style="margin: 0; color: #666;">${patientInfo.currentMedications || 'None reported'}</p>
-            </div>
-
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-              <p style="margin: 0 0 5px 0;"><strong>Allergies:</strong></p>
-              <p style="margin: 0; color: #666;">${patientInfo.allergies || 'None reported'}</p>
-            </div>
-
-            ${patientInfo.accessibilityNeeds ? `
-            <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-              <p style="margin: 0 0 5px 0;"><strong>Accessibility Accommodations:</strong></p>
-              <p style="margin: 0; color: #92400e;">${patientInfo.accessibilityNeeds}</p>
-            </div>
-            ` : ''}
-          </div>
-
-          <div style="background-color: #2d5a4a; padding: 15px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">This appointment was booked through the NovaCare Clinic website.</p>
-          </div>
-        </div>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
       `,
     });
 
@@ -195,94 +331,234 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: 'NovaCare Clinic <noreply@novacareclinicllc.com>',
       to: [patientInfo.email],
-      subject: `Appointment Confirmation - ${formattedDate} at ${time}`,
+      subject: `✅ Appointment Confirmed - ${shortDate} at ${time}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background-color: #2d5a4a; padding: 20px; text-align: center;">
-            <h1 style="color: white; margin: 0;">Appointment Confirmed!</h1>
-          </div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; background-color: ${styles.warmGray}; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: ${styles.warmGray}; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
 
-          <div style="padding: 30px; background-color: #f9f7f4;">
-            <p style="font-size: 16px;">Dear ${patientInfo.firstName},</p>
+                  <!-- Success Header -->
+                  <tr>
+                    <td style="background: linear-gradient(135deg, ${styles.success} 0%, #047857 100%); padding: 40px; text-align: center;">
+                      <div style="width: 64px; height: 64px; background-color: rgba(255,255,255,0.2); border-radius: 50%; margin: 0 auto 16px auto; display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 32px; line-height: 64px;">✓</span>
+                      </div>
+                      <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 400;">
+                        You're All Set!
+                      </h1>
+                      <p style="margin: 12px 0 0 0; color: rgba(255,255,255,0.9); font-size: 16px;">
+                        Your appointment has been confirmed
+                      </p>
+                    </td>
+                  </tr>
 
-            <p>Thank you for scheduling an appointment with NovaCare Clinic. We're looking forward to seeing you!</p>
+                  <!-- Logo -->
+                  <tr>
+                    <td style="padding: 32px 40px 24px 40px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06);">
+                      <div style="font-size: 24px; font-weight: 300; color: ${styles.primary}; letter-spacing: -0.5px;">
+                        Nova<span style="font-weight: 600;">Care</span>
+                      </div>
+                      <div style="font-size: 10px; color: ${styles.textLight}; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px;">
+                        Mental Health Clinic
+                      </div>
+                    </td>
+                  </tr>
 
-            <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #2d5a4a;">
-              <h3 style="color: #2d5a4a; margin-top: 0;">Appointment Details</h3>
-              <table style="width: 100%; border-collapse: collapse;">
-                <tr>
-                  <td style="padding: 8px 0; font-weight: bold;">Type:</td>
-                  <td style="padding: 8px 0;">${appointmentTypeLabels[type] || type}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; font-weight: bold;">Date:</td>
-                  <td style="padding: 8px 0;">${formattedDate}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; font-weight: bold;">Time:</td>
-                  <td style="padding: 8px 0;">${time}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; font-weight: bold;">Format:</td>
-                  <td style="padding: 8px 0;">${appointmentMode === 'telehealth' ? 'Telehealth (Video Call)' : 'In-Person Visit'}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px 0; font-weight: bold;">Provider:</td>
-                  <td style="padding: 8px 0;">To be assigned by our team</td>
-                </tr>
-              </table>
-            </div>
+                  <!-- Appointment Card -->
+                  <tr>
+                    <td style="padding: 32px 40px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(145deg, ${styles.cream} 0%, #ffffff 100%); border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,0.04);">
+                        <tr>
+                          <td style="padding: 28px;">
+                            <!-- Date Display -->
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td width="90" style="vertical-align: top;">
+                                  <div style="width: 80px; background-color: ${styles.primary}; border-radius: 12px; text-align: center; overflow: hidden;">
+                                    <div style="background-color: ${styles.accent}; padding: 6px 0; font-size: 11px; color: ${styles.primary}; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                                      ${new Date(date).toLocaleDateString('en-US', { month: 'short' })}
+                                    </div>
+                                    <div style="padding: 12px 0; font-size: 36px; color: #ffffff; font-weight: 700; line-height: 1;">
+                                      ${new Date(date).getDate()}
+                                    </div>
+                                    <div style="padding: 0 0 10px 0; font-size: 11px; color: rgba(255,255,255,0.7); text-transform: uppercase;">
+                                      ${new Date(date).toLocaleDateString('en-US', { weekday: 'short' })}
+                                    </div>
+                                  </div>
+                                </td>
+                                <td style="vertical-align: middle; padding-left: 20px;">
+                                  <div style="font-size: 14px; color: ${styles.primaryLight}; font-weight: 600; margin-bottom: 4px;">
+                                    ${appointmentTypeIcons[type] || '📋'} ${appointmentTypeLabels[type] || type}
+                                  </div>
+                                  <div style="font-size: 24px; color: ${styles.text}; font-weight: 600; margin-bottom: 8px;">
+                                    ${time}
+                                  </div>
+                                  <div style="display: inline-block; background-color: ${appointmentMode === 'telehealth' ? '#dbeafe' : '#dcfce7'}; color: ${appointmentMode === 'telehealth' ? '#1e40af' : '#166534'}; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 500;">
+                                    ${appointmentMode === 'telehealth' ? '🖥️ Video Call' : '🏥 In-Person'}
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; margin: 20px 0;">
-              <h4 style="color: #92400e; margin-top: 0;">Important Information</h4>
-              <ul style="margin: 0; padding-left: 20px; color: #92400e;">
-                <li>Please arrive 15 minutes early for your appointment</li>
-                <li>Bring a valid photo ID and insurance card</li>
-                <li>Complete intake forms will be sent via email before your visit</li>
-                <li>Call (602) 399-1404 if you need to reschedule or cancel</li>
-              </ul>
-            </div>
+                  <!-- Important Info -->
+                  <tr>
+                    <td style="padding: 0 40px 32px 40px;">
+                      <div style="background-color: #fef3c7; border-radius: 12px; padding: 20px;">
+                        <div style="font-size: 14px; font-weight: 600; color: #92400e; margin-bottom: 12px;">
+                          📋 Before Your Appointment
+                        </div>
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td style="padding: 6px 0; font-size: 13px; color: #92400e;">
+                              <span style="margin-right: 8px;">•</span> Please arrive 15 minutes early
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 6px 0; font-size: 13px; color: #92400e;">
+                              <span style="margin-right: 8px;">•</span> Bring a valid photo ID and insurance card
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding: 6px 0; font-size: 13px; color: #92400e;">
+                              <span style="margin-right: 8px;">•</span> Intake forms will be sent via email
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
 
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
-              <h4 style="color: #2d5a4a; margin-top: 0;">What Happens Next</h4>
-              <ol style="margin: 0; padding-left: 20px;">
-                <li>You'll receive a confirmation email with appointment details</li>
-                <li>Intake forms will be sent 24-48 hours before your appointment</li>
-                <li>Our team will call to confirm your appointment 1 day prior</li>
-                <li>Arrive early and check in at our front desk</li>
-              </ol>
-            </div>
+                  <!-- What's Next Timeline -->
+                  <tr>
+                    <td style="padding: 0 40px 32px 40px;">
+                      <div style="font-size: 16px; font-weight: 600; color: ${styles.text}; margin-bottom: 20px; text-align: center;">
+                        What happens next?
+                      </div>
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="padding: 12px 0;">
+                            <table cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td width="48" style="vertical-align: top;">
+                                  <div style="width: 36px; height: 36px; background-color: ${styles.cream}; border-radius: 50%; text-align: center; line-height: 36px; font-size: 16px;">📧</div>
+                                </td>
+                                <td style="padding-left: 12px;">
+                                  <div style="font-size: 14px; font-weight: 500; color: ${styles.text};">Intake Forms</div>
+                                  <div style="font-size: 13px; color: ${styles.textLight};">We'll send forms 24-48 hours before</div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 12px 0;">
+                            <table cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td width="48" style="vertical-align: top;">
+                                  <div style="width: 36px; height: 36px; background-color: ${styles.cream}; border-radius: 50%; text-align: center; line-height: 36px; font-size: 16px;">📞</div>
+                                </td>
+                                <td style="padding-left: 12px;">
+                                  <div style="font-size: 14px; font-weight: 500; color: ${styles.text};">Confirmation Call</div>
+                                  <div style="font-size: 13px; color: ${styles.textLight};">Our team will call 1 day prior</div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 12px 0;">
+                            <table cellpadding="0" cellspacing="0">
+                              <tr>
+                                <td width="48" style="vertical-align: top;">
+                                  <div style="width: 36px; height: 36px; background-color: ${styles.cream}; border-radius: 50%; text-align: center; line-height: 36px; font-size: 16px;">${appointmentMode === 'telehealth' ? '🔗' : '🏥'}</div>
+                                </td>
+                                <td style="padding-left: 12px;">
+                                  <div style="font-size: 14px; font-weight: 500; color: ${styles.text};">${appointmentMode === 'telehealth' ? 'Video Link' : 'Check In'}</div>
+                                  <div style="font-size: 13px; color: ${styles.textLight};">${appointmentMode === 'telehealth' ? 'Secure link sent 24 hours before' : 'Arrive early at our front desk'}</div>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            ${appointmentMode === 'in-person' ? `
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
-              <h4 style="color: #2d5a4a; margin-top: 0;">Our Location</h4>
-              <p style="margin: 0;">
-                <strong>NovaCare Clinic</strong><br>
-                123 Healthcare Drive<br>
-                Phoenix, AZ 85001<br>
-                <a href="tel:602-399-1404" style="color: #2d5a4a;">(602) 399-1404</a>
-              </p>
-            </div>
-            ` : `
-            <div style="background-color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
-              <h4 style="color: #2d5a4a; margin-top: 0;">Telehealth Instructions</h4>
-              <p style="margin: 0;">You will receive a secure video link via email 24 hours before your appointment. Please ensure you have a stable internet connection and a private, quiet space for your session.</p>
-            </div>
-            `}
+                  <!-- Contact Box -->
+                  <tr>
+                    <td style="padding: 0 40px 32px 40px;">
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background-color: ${styles.cream}; border-radius: 12px;">
+                        <tr>
+                          <td style="padding: 24px; text-align: center;">
+                            <p style="margin: 0 0 16px 0; color: ${styles.text}; font-size: 14px;">
+                              Need to reschedule or have questions?
+                            </p>
+                            <a href="tel:602-399-1404" style="display: inline-block; background-color: ${styles.primary}; color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 600;">
+                              📞 (602) 399-1404
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <p>If you have any questions before your appointment, please don't hesitate to contact us at <a href="tel:602-399-1404" style="color: #2d5a4a; font-weight: bold;">(602) 399-1404</a>.</p>
+                  <!-- Footer -->
+                  <tr>
+                    <td style="background-color: ${styles.primary}; padding: 32px 40px;">
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td align="center">
+                            <div style="font-size: 20px; font-weight: 300; color: #ffffff; letter-spacing: -0.5px; margin-bottom: 12px;">
+                              Nova<span style="font-weight: 600;">Care</span> <span style="font-size: 12px; opacity: 0.7;">Clinic</span>
+                            </div>
+                            <p style="margin: 0 0 8px 0; color: rgba(255,255,255,0.8); font-size: 13px;">
+                              We look forward to supporting your mental health journey.
+                            </p>
+                            <p style="margin: 0; color: rgba(255,255,255,0.6); font-size: 12px;">
+                              www.novacareclinicllc.com
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
 
-            <p style="margin-top: 30px;">
-              We look forward to supporting you on your mental health journey.<br><br>
-              Warm regards,<br>
-              <strong>The NovaCare Clinic Team</strong>
-            </p>
-          </div>
+                  <!-- Bottom Bar -->
+                  <tr>
+                    <td style="height: 4px; background: ${styles.accent};"></td>
+                  </tr>
 
-          <div style="background-color: #2d5a4a; padding: 15px; text-align: center;">
-            <p style="color: white; margin: 0; font-size: 12px;">NovaCare Clinic | (602) 399-1404 | www.novacareclinicllc.com</p>
-          </div>
-        </div>
+                </table>
+
+                <!-- Footer Text -->
+                <table width="600" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding: 24px 40px; text-align: center;">
+                      <p style="margin: 0; color: ${styles.textLight}; font-size: 11px;">
+                        This confirmation was sent from NovaCare Clinic.<br>
+                        © ${new Date().getFullYear()} NovaCare Clinic. All rights reserved.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
       `,
     });
 
