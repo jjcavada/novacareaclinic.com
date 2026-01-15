@@ -30,6 +30,20 @@ export const metadata = {
     ],
   },
   manifest: '/assets/favicon/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'NovaCare Clinic',
+    url: 'https://novacareclinic.com',
+    images: [
+      {
+        url: '/assets/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NovaCare Clinic - Compassionate Behavioral Health Care',
+      },
+    ],
+  },
 };
 
 const jsonLd = {
