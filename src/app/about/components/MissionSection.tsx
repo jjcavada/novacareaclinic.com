@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 interface MissionSectionProps {
@@ -85,7 +86,10 @@ const MissionSection = ({ className = '' }: MissionSectionProps) => {
               <p className="font-body text-text-secondary leading-relaxed mb-6">
                 We believe seeking help should feel empowering, not stigmatizing. Our approach
                 creates a safe space where transformation happens naturally through trust,
-                understanding, and evidence-based care.
+                understanding, and evidence-based care.{' '}
+                <Link href="/services" className="text-primary hover:text-primary/80 font-medium transition-colors">
+                  Explore our treatment approaches
+                </Link>.
               </p>
               <div className="flex items-center gap-3 text-primary">
                 <Icon name="CheckCircleIcon" size={20} />

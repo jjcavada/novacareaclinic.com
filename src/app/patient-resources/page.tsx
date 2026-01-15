@@ -3,8 +3,12 @@ import Header from '@/components/common/Header';
 import PatientResourcesInteractive from './components/PatientResourcesInteractive';
 
 export const metadata: Metadata = {
-  title: 'Mental Health Resources - NovaCare Clinic',
+  title: 'Mental Health Resources',
   description: 'Access trusted mental health resources from NIMH, NAMI, CDC, and SAMHSA. Find information about depression, anxiety, ADHD, bipolar disorder, and PTSD in English and Spanish.',
+  keywords: ['mental health resources', 'depression information', 'anxiety resources', 'ADHD information', 'PTSD resources'],
+  alternates: {
+    canonical: '/patient-resources',
+  },
 };
 
 export default function PatientResourcesPage() {

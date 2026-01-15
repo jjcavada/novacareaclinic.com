@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 interface TreatmentStep {
@@ -59,11 +60,18 @@ const TreatmentApproach = ({ steps }: TreatmentApproachProps) => {
             <h3 className="font-headline font-semibold text-xl text-foreground mb-3">
               Integrated Care Philosophy
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-4">
               Every treatment plan is personalized to address your unique needs, circumstances, and goals.
               We coordinate with your primary care provider and other specialists to ensure comprehensive,
               seamless care that supports your overall wellness journey.
             </p>
+            <Link
+              href="/schedule-appointment"
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
+            >
+              Schedule your initial assessment
+              <Icon name="ArrowRightIcon" size={16} />
+            </Link>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import ServiceCard from './ServiceCard';
 import ServiceFilters from './ServiceFilters';
 import ServiceSearch from './ServiceSearch';
@@ -305,7 +306,8 @@ const ServicesInteractive = () => {
           </h1>
           <p className="text-muted-foreground text-xl max-w-3xl mx-auto mb-8">
             Evidence-based treatments delivered with compassion and cultural sensitivity.
-            We provide integrated care that addresses your whole-person wellness.
+            <Link href="/providers" className="text-primary hover:text-primary/80 font-medium transition-colors"> Our experienced providers</Link>{' '}
+            deliver integrated care that addresses your whole-person wellness.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

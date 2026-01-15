@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 interface CrisisResource {
@@ -108,9 +109,25 @@ const CrisisResourcesSection = ({ resources }: CrisisResourcesSectionProps) => {
           <Icon name="InformationCircleIcon" size={16} className="inline mr-2" />
           If you are experiencing a medical emergency, call 911 immediately.
         </p>
-        <p className="text-xs text-muted-foreground">
-          For non-emergency mental health support, contact our clinic at (602) 555-0123 during business hours.
+        <p className="text-xs text-muted-foreground mb-3">
+          For non-emergency mental health support, contact our clinic at (602) 399-1404 during business hours.
         </p>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/schedule-appointment"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
+          >
+            <Icon name="CalendarIcon" size={14} />
+            Schedule an appointment
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
+          >
+            <Icon name="PhoneIcon" size={14} />
+            Contact us
+          </Link>
+        </div>
       </div>
     </div>
   );

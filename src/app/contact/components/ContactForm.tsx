@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
 interface FormData {
@@ -86,6 +87,14 @@ const ContactForm = ({ className = '' }: ContactFormProps) => {
           </h2>
           <p className="font-body text-lg text-text-secondary">
             Fill out the form below and we'll get back to you within 24 hours. For urgent matters, please call us directly.
+            Need to{' '}
+            <Link href="/schedule-appointment" className="text-primary hover:text-primary/80 font-medium transition-colors">
+              schedule an appointment
+            </Link>{' '}
+            or have questions about{' '}
+            <Link href="/insurance-and-payment" className="text-primary hover:text-primary/80 font-medium transition-colors">
+              insurance and billing
+            </Link>?
           </p>
         </div>
 

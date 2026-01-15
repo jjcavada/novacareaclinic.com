@@ -4,8 +4,12 @@ import Icon from '@/components/ui/AppIcon';
 import InsurancePaymentInteractive from './components/InsurancePaymentInteractive';
 
 export const metadata: Metadata = {
-  title: 'Insurance & Payment - NovaCare Clinic',
+  title: 'Insurance & Payment Options',
   description: 'Transparent financial information and payment options for behavioral health services. Insurance verification, sliding fee scale, and financial assistance programs available.',
+  keywords: ['insurance accepted', 'sliding fee scale', 'mental health payment', 'financial assistance'],
+  alternates: {
+    canonical: '/insurance-and-payment',
+  },
 };
 
 export default function InsuranceAndPaymentPage() {

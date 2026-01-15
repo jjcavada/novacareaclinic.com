@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Link from 'next/link';
 import ProviderCard from './ProviderCard';
 import Icon from '@/components/ui/AppIcon';
 
@@ -371,14 +372,14 @@ const ProvidersInteractive = () => {
             and take the first step toward better mental health.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="btn-organic bg-white text-warm-800 hover:bg-warm-50 px-8 py-4 font-semibold shadow-lift">
+            <Link href="/schedule-appointment" className="btn-organic bg-white text-warm-800 hover:bg-warm-50 px-8 py-4 font-semibold shadow-lift inline-flex items-center">
               <Icon name="CalendarDaysIcon" size={20} className="mr-2" />
               Schedule Appointment
-            </button>
-            <button className="btn-organic border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4">
-              <Icon name="PhoneIcon" size={20} className="mr-2" />
-              Call Us Now
-            </button>
+            </Link>
+            <Link href="/services" className="btn-organic border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 inline-flex items-center">
+              <Icon name="HeartIcon" size={20} className="mr-2" />
+              View Our Services
+            </Link>
           </div>
         </div>
       </section>
