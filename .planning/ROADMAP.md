@@ -8,52 +8,31 @@ Transform the existing NovaCare Clinic marketing website from placeholder conten
 
 None
 
+## Milestones
+
+- [v1.0 SEO & Resources](milestones/v1.0-ROADMAP.md) (Phases 1-4) - SHIPPED 2026-01-15
+
 ## Phases
 
 **Phase Numbering:**
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [x] **Phase 1: Resources Content** - Replace mock resources with real authoritative health resources
-- [x] **Phase 2: Core SEO** - Meta tags, canonical URLs, heading hierarchy, internal linking
-- [x] **Phase 3: Rich SEO** - Schema.org structured data, Open Graph, Twitter Cards
-- [x] **Phase 4: Technical SEO** - XML sitemap, robots.txt
+<details>
+<summary>v1.0 SEO & Resources (Phases 1-4) - SHIPPED 2026-01-15</summary>
 
-## Phase Details
+- [x] Phase 1: Resources Content (1/1 plans) - completed 2026-01-15
+- [x] Phase 2: Core SEO (2/2 plans) - completed 2026-01-15
+- [x] Phase 3: Rich SEO (1/1 plans) - completed 2026-01-15
+- [x] Phase 4: Technical SEO (1/1 plans) - completed 2026-01-15
 
-### Phase 1: Resources Content
-**Goal**: Replace placeholder/mock PDF links with real, curated external resources from authoritative sources (NIMH, SAMHSA, NAMI, CDC) in both English and Spanish where official translations exist
-**Depends on**: Nothing (first phase)
-**Research**: Likely (external sources - need current URLs)
-**Research topics**: Current NIMH, SAMHSA, NAMI, CDC resource pages for mental health topics, availability of official Spanish translations
-**Plans**: TBD
-
-### Phase 2: Core SEO
-**Goal**: Implement foundational SEO elements across all 9 pages for basic search engine discoverability
-**Depends on**: Phase 1
-**Research**: Unlikely (established Next.js metadata patterns)
-**Plans**: TBD
-
-### Phase 3: Rich SEO
-**Goal**: Add structured data and social sharing metadata for enhanced search results and social previews
-**Depends on**: Phase 2
-**Research**: Unlikely (established schema.org patterns)
-**Plans**: TBD
-
-### Phase 4: Technical SEO
-**Goal**: Implement technical SEO requirements for crawlability and performance optimization
-**Depends on**: Phase 3
-**Research**: Unlikely (established Next.js sitemap/robots patterns)
-**Plans**: TBD
+</details>
 
 ## Progress
 
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Resources Content | 1/1 | Complete | 2026-01-15 |
-| 2. Core SEO | 2/2 | Complete | 2026-01-15 |
-| 3. Rich SEO | 1/1 | Complete | 2026-01-15 |
-| 4. Technical SEO | 1/1 | Complete | 2026-01-15 |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Resources Content | v1.0 | 1/1 | Complete | 2026-01-15 |
+| 2. Core SEO | v1.0 | 2/2 | Complete | 2026-01-15 |
+| 3. Rich SEO | v1.0 | 1/1 | Complete | 2026-01-15 |
+| 4. Technical SEO | v1.0 | 1/1 | Complete | 2026-01-15 |

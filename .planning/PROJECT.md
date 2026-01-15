@@ -22,23 +22,24 @@ A production-ready marketing website for NovaCare Clinic, a behavioral health cl
 - ✓ Image optimization (Next.js Image) — existing
 - ✓ TypeScript strict mode — existing
 - ✓ Custom 404 page — existing
+- ✓ Resources page with real authoritative health resources (NIMH, SAMHSA, NAMI, CDC) — v1.0
+- ✓ Bilingual resources (English/Spanish) — v1.0
+- ✓ External link attributes (rel="noopener noreferrer" target="_blank") — v1.0
+- ✓ Meta tags (title, description, keywords) on all pages — v1.0
+- ✓ Schema.org structured data (MedicalClinic) — v1.0
+- ✓ XML sitemap generation — v1.0
+- ✓ robots.txt configuration — v1.0
+- ✓ Open Graph meta tags for social sharing — v1.0
+- ✓ Twitter Card meta tags — v1.0
+- ✓ Canonical URLs on all pages — v1.0
+- ✓ Proper heading hierarchy (H1, H2, H3) audit and fixes — v1.0
+- ✓ Internal linking structure between pages — v1.0
 
 ### Active
 
-- [ ] Resources page with real authoritative health resources (NIMH, SAMHSA, NAMI, CDC)
-- [ ] Bilingual resources (English/Spanish) — skip resources without official Spanish versions
-- [ ] External link attributes (rel="noopener noreferrer" target="_blank")
-- [ ] Meta tags (title, description, keywords) on all pages
-- [ ] Schema.org structured data (MedicalOrganization, MedicalClinic)
-- [ ] XML sitemap generation
-- [ ] robots.txt configuration
-- [ ] Open Graph meta tags for social sharing
-- [ ] Twitter Card meta tags
-- [ ] Canonical URLs on all pages
-- [ ] Proper heading hierarchy (H1, H2, H3) audit and fixes
-- [ ] Internal linking structure between pages
 - [ ] Lazy loading for images
 - [ ] Descriptive alt text for all images
+- [ ] og-image.jpg creation (1200x630) for social previews
 
 ### Out of Scope
 
@@ -85,9 +86,14 @@ A production-ready marketing website for NovaCare Clinic, a behavioral health cl
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Skip Spanish resources without official translations | Maintain quality and accuracy over coverage | — Pending |
+| Skip Spanish resources without official translations | Maintain quality and accuracy over coverage | ✓ Good |
 | Use Vercel for deployment | Standard Next.js hosting with best performance | — Pending |
-| Static site generation for SEO | Better crawlability and performance | — Pending |
+| Static site generation for SEO | Better crawlability and performance | ✓ Good |
+| External links only (no PDFs) | Link to authoritative sources instead of hosting copies | ✓ Good |
+| Condition-based resource organization | More intuitive for users seeking help | ✓ Good |
+| metadataBase pattern | Next.js canonical URL generation site-wide | ✓ Good |
+| MedicalClinic schema type | Extends MedicalOrganization with clinic details | ✓ Good |
+| Priority-based sitemap | Homepage 1.0 down to legal 0.3 | ✓ Good |
 
 ---
-*Last updated: 2026-01-15 after initialization*
+*Last updated: 2026-01-15 after v1.0 milestone*
