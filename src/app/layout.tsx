@@ -32,6 +32,39 @@ export const metadata = {
   manifest: '/assets/favicon/site.webmanifest',
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalClinic',
+  name: 'NovaCare Clinic',
+  description: 'Quality mental health services in Phoenix, Arizona. Professional behavioral health care regardless of your ability to pay. Crisis support available 24/7.',
+  url: 'https://novacareclinic.com',
+  telephone: '(602) 555-0123',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '4523 W Glendale Ave, Suite 102',
+    addressLocality: 'Phoenix',
+    addressRegion: 'AZ',
+    postalCode: '85301',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '33.5387',
+    longitude: '-112.1350',
+  },
+  openingHours: 'Mo-Fr 08:00-18:00',
+  medicalSpecialty: ['Psychiatry', 'Psychology', 'MentalHealth'],
+  availableService: [
+    { '@type': 'MedicalTherapy', name: 'Individual Therapy' },
+    { '@type': 'MedicalTherapy', name: 'Group Therapy' },
+    { '@type': 'MedicalTherapy', name: 'Psychiatric Evaluation' },
+    { '@type': 'MedicalTherapy', name: 'Medication Management' },
+    { '@type': 'MedicalTherapy', name: 'Crisis Intervention' },
+    { '@type': 'MedicalTherapy', name: 'Family Counseling' },
+  ],
+  priceRange: '$$',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,6 +81,11 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
 
         <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fnovacarec5032back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.10" />
         <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1" /></body>
