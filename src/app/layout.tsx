@@ -9,13 +9,27 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'NovaCare Clinic - Compassionate Behavioral Health Care',
+  metadataBase: new URL('https://novacareclinic.com'),
+  title: {
+    default: 'NovaCare Clinic - Compassionate Behavioral Health Care',
+    template: '%s | NovaCare Clinic',
+  },
   description: 'Quality mental health services in Phoenix, Arizona. Professional behavioral health care regardless of your ability to pay. Crisis support available 24/7.',
+  keywords: ['behavioral health clinic', 'mental health services', 'Phoenix psychiatrist', 'anxiety therapy', 'depression treatment', 'psychiatric care Phoenix AZ'],
+  authors: [{ name: 'NovaCare Clinic' }],
+  creator: 'NovaCare Clinic',
+  publisher: 'NovaCare Clinic',
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
+      { url: '/assets/favicon/favicon.ico' },
+      { url: '/assets/favicon/favicon.svg', type: 'image/svg+xml' },
+      { url: '/assets/favicon/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    apple: [
+      { url: '/assets/favicon/apple-touch-icon.png', sizes: '180x180' },
     ],
   },
+  manifest: '/assets/favicon/site.webmanifest',
 };
 
 export default function RootLayout({
