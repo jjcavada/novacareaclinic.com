@@ -14,6 +14,7 @@ interface Provider {
   alt: string;
   quote: string;
   credentials: string;
+  imagePosition?: string;
 }
 
 interface ProviderSpotlightProps {
@@ -29,7 +30,7 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
       name: "Dr. Leticia Jacinto",
       title: "Psychiatrist",
       specialties: ["Psychiatric Evaluations", "Medication Management", "Mental Health Treatment"],
-      image: "https://images.unsplash.com/photo-1663664971647-59de765183c1?v=" + refreshKey,
+      image: "/assets/images/latecia jacintofinal.jpeg",
       alt: "Professional Hispanic woman doctor in white coat with stethoscope smiling warmly in medical office",
       quote: "Every person deserves compassionate, evidence-based psychiatric care that honors their unique journey toward mental wellness.",
       credentials: "MD, Board Certified Psychiatrist"
@@ -39,7 +40,7 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
       name: "Anne Vargas-Leveriza",
       title: "Behavioral Health Professional",
       specialties: ["Individual Therapy", "Behavioral Health Counseling", "Care Coordination"],
-      image: "https://images.unsplash.com/photo-1714976694468-1dab37879a76?v=" + refreshKey,
+      image: "/assets/images/Anne Leverizafinal.jpeg",
       alt: "Professional woman therapist in business attire sitting in comfortable counseling office with warm lighting",
       quote: "Healing happens in relationship. I'm here to walk alongside you as you discover your own strength and resilience.",
       credentials: "Licensed Behavioral Health Professional"
@@ -49,10 +50,11 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
       name: "Anna Manalo, FNP",
       title: "Primary Care Physician",
       specialties: ["Primary Care Integration", "Medical Services", "Preventive Care"],
-      image: "https://images.unsplash.com/photo-1731484635501-71f97d8e998f?v=" + refreshKey,
+      image: "/assets/images/ann manalofinals.jpeg",
       alt: "Professional Asian American female nurse practitioner with glasses in medical coat sitting in modern medical office",
       quote: "Integrating primary care with behavioral health creates a comprehensive approach to whole-person wellness.",
-      credentials: "FNP, Family Nurse Practitioner"
+      credentials: "FNP, Family Nurse Practitioner",
+      imagePosition: "center"
     }
   ];
 
@@ -92,7 +94,9 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
                 <AppImage
                   src={provider.image}
                   alt={provider.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${
+                    provider.imagePosition === 'center' ? 'object-center' : 'object-top'
+                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>

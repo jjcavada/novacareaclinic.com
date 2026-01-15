@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '@/components/common/Footer';
 import PageTransition from '@/components/common/PageTransition';
-import '../styles/index.css';
+import '../styles/globals.css';
 
 export const viewport = {
   width: 'device-width',

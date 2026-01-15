@@ -17,6 +17,7 @@ interface ProviderCardProps {
     bio: string;
     education: string[];
     experience: number;
+    imagePosition?: string;
   };
   index?: number;
 }
@@ -79,8 +80,9 @@ const ProviderCard = ({ provider, index = 0 }: ProviderCardProps) => {
           <AppImage
             src={provider.image}
             alt={provider.alt}
-            className={`w-full h-full object-cover object-top transition-transform duration-700 ease-out-expo ${isHovered ? 'scale-105' : 'scale-100'
-              }`}
+            className={`w-full h-full object-cover transition-transform duration-700 ease-out-expo ${isHovered ? 'scale-105' : 'scale-100'} ${
+              provider.imagePosition === 'center' ? 'object-center' : 'object-top'
+            }`}
           />
 
           {/* Subtle gradient overlay */}

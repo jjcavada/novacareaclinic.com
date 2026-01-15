@@ -17,6 +17,7 @@ interface Provider {
   bio: string;
   education: string[];
   experience: number;
+  imagePosition?: string;
 }
 
 type FilterCategory = 'all' | 'clinical' | 'support';
@@ -39,7 +40,7 @@ const ProvidersInteractive = () => {
       title: 'Medical Director & Psychiatrist',
       credentials: ['MD', 'Board Certified Psychiatrist'],
       specialties: ['Psychiatric Evaluations', 'Medication Management', 'Treatment Planning', 'Mental Health Treatment'],
-      image: "/assets/images/dr-leticia-jacinto-v2.png",
+      image: "/assets/images/latecia jacintofinal.jpeg",
       alt: 'Dr. Leticia Jacinto - Medical Director and Psychiatrist',
       languages: ['English', 'Spanish'],
       bio: 'Dr. Jacinto provides comprehensive psychiatric evaluations and medication management services. With over 15 years of experience, she specializes in treating anxiety, depression, and other mental health conditions with evidence-based approaches.',
@@ -52,12 +53,13 @@ const ProvidersInteractive = () => {
       title: 'Primary Care Physician',
       credentials: ['FNP', 'Family Nurse Practitioner'],
       specialties: ['Primary Care Integration', 'Medical Services', 'Preventive Care', 'Physical Exams'],
-      image: "/assets/images/anna-manalo-v2.png",
+      image: "/assets/images/ann manalofinals.jpeg",
       alt: 'Anna Manalo, FNP - Primary Care Physician',
       languages: ['English', 'Tagalog'],
       bio: 'Anna provides primary care services and integrates medical care with behavioral health treatment. Her holistic approach ensures patients receive comprehensive care for both physical and mental health needs.',
       education: ['Masters in Nursing', 'Family Nurse Practitioner Certification'],
-      experience: 12
+      experience: 12,
+      imagePosition: 'center'
     },
     {
       id: 'anne-leveriza',
@@ -65,7 +67,7 @@ const ProvidersInteractive = () => {
       title: 'Behavioral Health Professional',
       credentials: ['Licensed Behavioral Health Professional'],
       specialties: ['Individual Therapy', 'Behavioral Health Counseling', 'Care Coordination', 'Crisis Intervention'],
-      image: "/assets/images/anne-leveriza-v2.png",
+      image: "/assets/images/Anne Leverizafinal.jpeg",
       alt: 'Anne Vargas-Leveriza - Behavioral Health Professional',
       languages: ['English'],
       bio: 'Anne specializes in behavioral health counseling and individual therapy services. Her warm and empathetic approach helps patients feel comfortable while working through their mental health challenges.',

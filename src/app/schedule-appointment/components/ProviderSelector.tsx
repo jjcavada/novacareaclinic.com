@@ -40,7 +40,7 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
       name: 'Dr. Leticia Jacinto',
       title: 'Psychiatrist',
       specialties: ['Psychiatric Evaluations', 'Medication Management', 'Mental Health Treatment'],
-      image: "https://img.rocket.new/generatedImages/rocket_gen_img_177d293e3-1762273902288.png",
+      image: "/assets/images/latecia jacintofinal.jpeg",
       alt: 'Professional Hispanic woman doctor with dark hair in white medical coat',
       availability: 'Available this week',
       rating: 4.9,
@@ -51,7 +51,7 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
       name: 'Anne Vargas-Leveriza',
       title: 'Behavioral Health Professional',
       specialties: ['Individual Therapy', 'Behavioral Health Counseling', 'Care Coordination'],
-      image: "https://images.unsplash.com/photo-1704159595056-1ba2a7448dc6",
+      image: "/assets/images/Anne Leverizafinal.jpeg",
       alt: 'Professional woman with curly hair in teal blouse smiling confidently in clinical setting',
       availability: 'Available this week',
       rating: 4.9,
@@ -62,7 +62,7 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
       name: 'Anna Manalo, FNP',
       title: 'Primary Care Physician',
       specialties: ['Primary Care Integration', 'Medical Services', 'Preventive Care'],
-      image: "https://images.unsplash.com/photo-1706799191377-96a80beaee24",
+      image: "/assets/images/ann manalofinals.jpeg",
       alt: 'Professional Filipino woman nurse practitioner in medical scrubs with stethoscope',
       availability: 'Available next week',
       rating: 4.8,
@@ -81,7 +81,7 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
             key={provider.id}
             onClick={() => onProviderSelect(provider.id)}
             className={`p-4 border-2 rounded-lg cursor-pointer transition-all hover:shadow-sm ${selectedProvider === provider.id ?
-                'border-primary bg-bg-light' : 'border-border hover:border-primary/50'}`
+              'border-primary bg-bg-light' : 'border-border hover:border-primary/50'}`
             }>
 
             <div className="flex items-start space-x-4">
@@ -89,7 +89,7 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
                 <AppImage
                   src={provider.image}
                   alt={provider.alt}
-                  className="w-16 h-16 rounded-full object-cover" />
+                  className="w-16 h-16 rounded-full object-cover object-top" />
 
               </div>
               <div className="flex-1 min-w-0">

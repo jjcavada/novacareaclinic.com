@@ -16,7 +16,7 @@ const TeamIntroSection = ({ className = '' }: TeamIntroSectionProps) => {
       name: 'Dr. Leticia Jacinto',
       role: 'Psychiatrist',
       specialty: 'Psychiatric Evaluations & Medication Management',
-      image: "https://img.rocket.new/generatedImages/rocket_gen_img_177d293e3-1762273902288.png",
+      image: "/assets/images/latecia jacintofinal.jpeg",
       alt: 'Professional Hispanic woman doctor with dark hair in white medical coat',
       credentials: 'MD, Board Certified Psychiatrist',
       experience: '15+ years in psychiatry'
@@ -25,7 +25,7 @@ const TeamIntroSection = ({ className = '' }: TeamIntroSectionProps) => {
       name: 'Anne Vargas-Leveriza',
       role: 'Behavioral Health Professional',
       specialty: 'Individual Therapy & Behavioral Health Counseling',
-      image: "https://images.unsplash.com/photo-1704159595056-1ba2a7448dc6",
+      image: "/assets/images/Anne Leverizafinal.jpeg",
       alt: 'Professional woman with curly hair in teal blouse smiling confidently in clinical setting',
       credentials: 'Licensed Behavioral Health Professional',
       experience: '10+ years in behavioral health'
@@ -34,10 +34,11 @@ const TeamIntroSection = ({ className = '' }: TeamIntroSectionProps) => {
       name: 'Anna Manalo, FNP',
       role: 'Primary Care Physician',
       specialty: 'Primary Care Integration & Medical Services',
-      image: "https://images.unsplash.com/photo-1706799191377-96a80beaee24",
+      image: "/assets/images/ann manalofinals.jpeg",
       alt: 'Professional Filipino woman nurse practitioner in medical scrubs with stethoscope',
       credentials: 'FNP, Family Nurse Practitioner',
-      experience: '12+ years in primary care'
+      experience: '12+ years in primary care',
+      imagePosition: 'center'
     }];
 
   const teamStats = [
@@ -110,7 +111,9 @@ const TeamIntroSection = ({ className = '' }: TeamIntroSectionProps) => {
                 <AppImage
                   src={member.image}
                   alt={member.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-all duration-300" />
+                  className={`w-full h-full object-cover hover:scale-105 transition-all duration-300 ${
+                    (member as any).imagePosition === 'center' ? 'object-center' : 'object-top'
+                  }`} />
 
               </div>
 

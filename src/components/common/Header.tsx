@@ -129,11 +129,7 @@ const Header = ({ className = '' }: HeaderProps) => {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Link href="/patient-portal">
-                <Button variant="ghost" size="sm">
-                  Patient Portal
-                </Button>
-              </Link>
+
               <Link href="/schedule-appointment">
                 <Button>
                   Schedule Appointment
@@ -141,7 +137,7 @@ const Header = ({ className = '' }: HeaderProps) => {
               </Link>
               <a
                 href="tel:602-399-1404"
-                className="bg-secondary text-white px-4 py-2 rounded-lg font-headline font-semibold hover:bg-secondary/90 transition-all flex items-center gap-2"
+                className="bg-white text-warm-800 border-2 border-warm-300 px-4 py-2 rounded-lg font-body font-semibold hover:bg-warm-50 hover:border-primary hover:text-primary transition-all flex items-center gap-2"
               >
                 <Icon name="PhoneIcon" size={16} />
                 602-399-1404

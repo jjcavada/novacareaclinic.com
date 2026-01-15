@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '@/components/ui/AppIcon';
-import AppImage from '@/components/ui/AppImage';
 
 interface LocationInfoProps {
   className?: string;
@@ -141,44 +140,6 @@ const LocationInfo = ({ className = '' }: LocationInfoProps) => {
               </div>
             </div>
 
-            {/* Office Photos */}
-            <div className="bg-card border border-border rounded-lg overflow-hidden">
-              <div className="p-4 border-b border-border">
-                <h3 className="font-headline text-lg font-semibold text-text-primary">
-                  Our Welcoming Environment
-                </h3>
-              </div>
-              <div className="grid grid-cols-2 gap-1">
-                <div className="aspect-square overflow-hidden">
-                  <AppImage
-                    src="https://images.unsplash.com/photo-1734787277873-b9b25ec2196d"
-                    alt="Modern medical clinic waiting room with comfortable seating and natural lighting"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-
-                </div>
-                <div className="aspect-square overflow-hidden">
-                  <AppImage
-                    src="https://images.unsplash.com/photo-1551076805-e1869033e561"
-                    alt="Clean and bright medical consultation room with examination table and medical equipment"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-
-                </div>
-                <div className="aspect-square overflow-hidden">
-                  <AppImage
-                    src="https://images.unsplash.com/photo-1727250877947-1bc974e62a21"
-                    alt="Professional medical reception desk with friendly staff member greeting patients"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-
-                </div>
-                <div className="aspect-square overflow-hidden">
-                  <AppImage
-                    src="https://images.unsplash.com/photo-1730423025551-0188079c8b84"
-                    alt="Accessible clinic entrance with wheelchair ramp and automatic doors"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
-
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

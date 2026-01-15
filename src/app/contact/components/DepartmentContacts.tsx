@@ -21,8 +21,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'appointments',
       name: 'Appointments & Scheduling',
       description: 'New patient appointments, rescheduling, and availability',
-      contact: '(602) 399-1404 ext. 1',
-      email: 'appointments@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Mon-Fri: 8:00 AM - 6:00 PM',
       icon: 'CalendarDaysIcon'
     },
@@ -30,8 +30,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'billing',
       name: 'Billing & Insurance',
       description: 'Payment questions, insurance verification, and financial assistance',
-      contact: '(602) 399-1404 ext. 2',
-      email: 'billing@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Mon-Fri: 9:00 AM - 5:00 PM',
       icon: 'CreditCardIcon'
     },
@@ -39,8 +39,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'medical-records',
       name: 'Medical Records',
       description: 'Record requests, transfers, and patient portal support',
-      contact: '(602) 399-1404 ext. 3',
-      email: 'records@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Mon-Fri: 8:30 AM - 4:30 PM',
       icon: 'DocumentTextIcon'
     },
@@ -48,8 +48,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'patient-services',
       name: 'Patient Services',
       description: 'General inquiries, feedback, and patient advocacy',
-      contact: '(602) 399-1404 ext. 4',
-      email: 'patientservices@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Mon-Fri: 8:00 AM - 5:00 PM',
       icon: 'UserGroupIcon'
     },
@@ -57,8 +57,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'crisis-support',
       name: 'Crisis Support Team',
       description: '24/7 mental health crisis intervention and emergency support',
-      contact: '(602) 399-1404 ext. 911',
-      email: 'crisis@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Available 24/7',
       icon: 'ExclamationTriangleIcon'
     },
@@ -66,8 +66,8 @@ const DepartmentContacts = ({ className = '' }: DepartmentContactsProps) => {
       id: 'pharmacy',
       name: 'Pharmacy Services',
       description: 'Medication questions, refills, and prescription coordination',
-      contact: '(602) 399-1404 ext. 5',
-      email: 'pharmacy@novacareclinic.com',
+      contact: '(602) 399-1404',
+      email: 'novacareclinicllc@gmail.com',
       hours: 'Mon-Fri: 9:00 AM - 6:00 PM',
       icon: 'BeakerIcon'
     }

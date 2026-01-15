@@ -78,27 +78,14 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
           <div className="relative animate-fade-up" style={{ animationDelay: '150ms' }}>
             <div className="relative rounded-3xl overflow-hidden shadow-lift">
               <AppImage
-                src="/assets/images/hero-professional-team-branded.png"
+                src="/assets/images/Heropagefinal.jpeg"
                 alt="Diverse group of healthcare professionals in modern clinic setting with warm lighting"
                 className="w-full h-96 lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-warm-900/20 to-transparent" />
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-4 -left-4 lg:left-auto lg:-right-4">
-              <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-lift border border-white/50">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <Icon name="HeartIcon" size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="font-headline text-2xl text-warm-800">15+</p>
-                    <p className="font-body text-sm text-warm-500">Years Experience</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

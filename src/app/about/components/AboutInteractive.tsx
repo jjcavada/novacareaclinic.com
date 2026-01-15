@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import HeroSection from './HeroSection';
 import MissionSection from './MissionSection';
 import FoundingStorySection from './FoundingStorySection';
-import CommunityImpactSection from './CommunityImpactSection';
+
 import TeamIntroSection from './TeamIntroSection';
 import TargetPopulationSection from './TargetPopulationSection';
 
@@ -26,7 +26,7 @@ const AboutInteractive = ({ className = '' }: AboutInteractiveProps) => {
         <MissionSection />
         <TargetPopulationSection />
         <FoundingStorySection />
-        <CommunityImpactSection />
+
         <TeamIntroSection />
       </div>
     );
@@ -38,7 +38,7 @@ const AboutInteractive = ({ className = '' }: AboutInteractiveProps) => {
       <MissionSection />
       <TargetPopulationSection />
       <FoundingStorySection />
-      <CommunityImpactSection />
+
       <TeamIntroSection />
     </div>
   );

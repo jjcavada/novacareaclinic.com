@@ -36,13 +36,7 @@ const QuickAccess = ({ className = '' }: QuickAccessProps) => {
       urgent: true,
       href: "/crisis-support" // Added href for item 2
     },
-    {
-      id: 3,
-      title: "Patient Portal",
-      description: "Access your records, test results, and communicate with your care team",
-      icon: "ComputerDesktopIcon",
-      href: "/patient-portal"
-    },
+
     {
       id: 4,
       title: "Insurance & Payment",
