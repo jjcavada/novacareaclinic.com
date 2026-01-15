@@ -14,8 +14,8 @@ None
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Resources Content** - Replace mock resources with real authoritative health resources
-- [ ] **Phase 2: Core SEO** - Meta tags, canonical URLs, heading hierarchy, internal linking
+- [x] **Phase 1: Resources Content** - Replace mock resources with real authoritative health resources
+- [x] **Phase 2: Core SEO** - Meta tags, canonical URLs, heading hierarchy, internal linking
 - [ ] **Phase 3: Rich SEO** - Schema.org structured data, Open Graph, Twitter Cards
 - [ ] **Phase 4: Technical SEO** - XML sitemap, robots.txt, image optimization
 
@@ -53,7 +53,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Resources Content | 0/TBD | Not started | - |
-| 2. Core SEO | 0/TBD | Not started | - |
+| 1. Resources Content | 1/1 | Complete | 2026-01-15 |
+| 2. Core SEO | 2/2 | Complete | 2026-01-15 |
 | 3. Rich SEO | 0/TBD | Not started | - |
 | 4. Technical SEO | 0/TBD | Not started | - |
