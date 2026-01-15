@@ -44,6 +44,11 @@ export const metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/assets/images/og-image.jpg'],
+    creator: '@novacareclinic',
+  },
 };
 
 const jsonLd = {
