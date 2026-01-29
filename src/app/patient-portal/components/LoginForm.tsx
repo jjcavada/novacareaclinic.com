@@ -52,7 +52,7 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
   };
 
   const mockCredentials = {
-    email: 'patient@novacare.com',
+    email: 'info@novacareclinic.health',
     password: 'SecurePass123',
     twoFactor: '123456'
   };

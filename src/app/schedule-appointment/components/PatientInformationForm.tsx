@@ -314,7 +314,7 @@ const PatientInformationForm = ({
             <p className="text-sm text-foreground">
               We accept most major insurance plans including Medicaid and Medicare.
               If you don't have insurance, we offer sliding scale fees based on income.
-              Call us at (602) 399-1404 for assistance with insurance verification.
+              Call us at (602) 556-8120 for assistance with insurance verification.
             </p>
           </div>
         )}

@@ -93,11 +93,11 @@ const LegalComplianceHub = () => {
             <div className="space-y-2 text-red-800">
               <div className="flex items-center gap-2">
                 <EnvelopeIcon className="h-4 w-4" />
-                <span>novacareclinicllc@gmail.com</span>
+                <span>info@novacareclinic.health</span>
               </div>
               <div className="flex items-center gap-2">
                 <PhoneIcon className="h-4 w-4" />
-                <span>602-399-1404</span>
+                <span>602-556-8120</span>
               </div>
             </div>
           </div>
@@ -330,11 +330,11 @@ const LegalComplianceHub = () => {
             <div className="space-y-2 text-red-800">
               <div className="flex items-center gap-2">
                 <EnvelopeIcon className="h-4 w-4" />
-                <span>Privacy Officer: novacareclinicllc@gmail.com</span>
+                <span>Privacy Officer: info@novacareclinic.health</span>
               </div>
               <div className="flex items-center gap-2">
                 <PhoneIcon className="h-4 w-4" />
-                <span>Office: 602-399-1404</span>
+                <span>Office: 602-556-8120</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPinIcon className="h-4 w-4" />
@@ -424,11 +424,11 @@ const LegalComplianceHub = () => {
                   <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex items-center gap-2">
                       <PhoneIcon className="h-4 w-4" />
-                      <span>602-399-1404</span>
+                      <span>602-556-8120</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <EnvelopeIcon className="h-4 w-4" />
-                      <span className="break-all">novacareclinicllc@gmail.com</span>
+                      <span className="break-all">info@novacareclinic.health</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <ClockIcon className="h-4 w-4 mt-0.5" />
@@ -504,13 +504,13 @@ const LegalComplianceHub = () => {
                         </div>
                         <div className="flex items-center gap-3">
                           <a
-                            href="tel:602-399-1404"
+                            href="tel:602-556-8120"
                             className="text-sm text-blue-600 hover:text-blue-800 font-medium"
                           >
-                            Call 602-399-1404
+                            Call 602-556-8120
                           </a>
                           <a
-                            href="mailto:novacareclinicllc@gmail.com"
+                            href="mailto:info@novacareclinic.health"
                             className="text-sm text-blue-600 hover:text-blue-800 font-medium"
                           >
                             Email Us

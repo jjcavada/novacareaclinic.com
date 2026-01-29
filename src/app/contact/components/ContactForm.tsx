@@ -131,7 +131,7 @@ const ContactForm = ({ className = '' }: ContactFormProps) => {
               <div>
                 <h3 className="font-cta font-semibold text-error mb-1">Error Sending Message</h3>
                 <p className="font-body text-sm text-text-secondary">
-                  Please try again or call us directly at (602) 399-1404.
+                  Please try again or call us directly at (602) 556-8120.
                 </p>
               </div>
             </div>

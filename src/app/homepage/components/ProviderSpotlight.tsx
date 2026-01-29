@@ -37,7 +37,7 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
     },
     {
       id: 2,
-      name: "Anne Vargas-Leveriza",
+      name: "Anne Leveriza",
       title: "Behavioral Health Professional",
       specialties: ["Individual Therapy", "Behavioral Health Counseling", "Care Coordination"],
       image: "/assets/images/Anne Leverizafinal.jpeg",

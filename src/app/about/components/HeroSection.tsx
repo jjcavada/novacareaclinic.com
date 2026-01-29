@@ -27,7 +27,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-healing-lg">
               <AppImage
-                src="https://images.unsplash.com/photo-1628390707616-3940b65c686d"
+                src="/images/about/IMG_6974.jpeg"
                 alt="Modern healthcare facility exterior with glass windows and welcoming entrance surrounded by desert landscaping"
                 className="w-full h-96 object-cover" />
 

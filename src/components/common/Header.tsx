@@ -61,10 +61,10 @@ const Header = ({ className = '' }: HeaderProps) => {
           </a>
           <span className="hidden sm:inline">|</span>
           <a
-            href="tel:602-399-1404"
+            href="tel:602-556-8120"
             className="font-semibold hover:underline transition-micro hidden sm:inline"
           >
-            602-399-1404
+            602-556-8120
           </a>
         </div>
       </div>
@@ -136,11 +136,11 @@ const Header = ({ className = '' }: HeaderProps) => {
                 </Button>
               </Link>
               <a
-                href="tel:602-399-1404"
+                href="tel:602-556-8120"
                 className="bg-white text-warm-800 border-2 border-warm-300 px-4 py-2 rounded-lg font-body font-semibold hover:bg-warm-50 hover:border-primary hover:text-primary transition-all flex items-center gap-2"
               >
                 <Icon name="PhoneIcon" size={16} />
-                602-399-1404
+                602-556-8120
               </a>
             </div>
 

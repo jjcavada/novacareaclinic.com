@@ -151,7 +151,7 @@ const RecognitionSection = ({ className = '' }: RecognitionSectionProps) => {
           <div>
             <div className="rounded-2xl overflow-hidden shadow-healing mb-6">
               <AppImage
-                src="https://images.unsplash.com/photo-1673769502379-8f885645ba15"
+                src="/images/about/IMG_6978.jpeg"
                 alt="Professional award ceremony with healthcare professionals receiving recognition on stage with spotlights and formal backdrop"
                 className="w-full h-64 object-cover" />
 

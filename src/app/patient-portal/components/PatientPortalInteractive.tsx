@@ -47,7 +47,7 @@ const PatientPortalInteractive = () => {
 
     // Mock authentication
     const mockCredentials = {
-      email: 'patient@novacare.com',
+      email: 'info@novacareclinic.health',
       password: 'SecurePass123',
       twoFactor: '123456'
     };
@@ -62,7 +62,7 @@ const PatientPortalInteractive = () => {
       const mockUser: User = {
         id: 'patient-123',
         name: 'John Doe',
-        email: 'patient@novacare.com',
+        email: 'info@novacareclinic.health',
         dateOfBirth: '1985-06-15',
         phone: '(602) 555-0123',
         address: '123 Main St, Phoenix, AZ 85001'

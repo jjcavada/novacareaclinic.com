@@ -24,21 +24,21 @@ const ContactMethods = ({ className = '' }: ContactMethodsProps) => {
       title: 'Phone',
       description: 'Speak directly with our care coordinators',
       icon: 'PhoneIcon',
-      primary: '(602) 399-1404',
+      primary: '(602) 556-8120',
       secondary: 'Main Line',
       action: 'Call Now',
       href: 'tel:+16023991404',
-      available: 'Monday - Friday: 8:00 AM - 5:00 PM'
+      available: 'Monday - Friday: 9:00 AM - 5:00 PM'
     },
     {
       id: 'email',
       title: 'Email',
       description: 'Send us your questions or concerns',
       icon: 'EnvelopeIcon',
-      primary: 'novacareclinicllc@gmail.com',
+      primary: 'info@novacareclinic.health',
       secondary: 'General Inquiries',
       action: 'Send Email',
-      href: 'mailto:novacareclinicllc@gmail.com',
+      href: 'mailto:info@novacareclinic.health',
       available: 'Response within 24 hours'
     },
     {
@@ -125,10 +125,10 @@ const ContactMethods = ({ className = '' }: ContactMethodsProps) => {
               </h3>
               <div className="font-body text-sm text-text-secondary space-y-1">
                 <div><strong>Clinic Hours:</strong></div>
-                <div>Monday - Friday: 8:00 AM - 5:00 PM</div>
+                <div>Monday - Friday: 9:00 AM - 5:00 PM</div>
                 <div>Saturday - Sunday: Closed</div>
                 <div className="mt-2"><strong>Administrative Hours:</strong></div>
-                <div>Monday - Friday: 8:00 AM - 4:00 PM</div>
+                <div>Monday - Friday: 9:00 AM - 4:00 PM</div>
                 <div>Saturday - Sunday: Closed</div>
               </div>
             </div>

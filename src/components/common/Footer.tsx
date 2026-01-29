@@ -32,11 +32,8 @@ const Footer = () => {
   const teamMembers = [
     { name: 'Meriam Arguillo', role: 'Administrator' },
     { name: 'Dr. Leticia Jacinto', role: 'Psychiatrist' },
-    { name: 'Anne Vargas-Leveriza', role: 'Behavioral Health Professional' },
-    { name: 'Anna Manalo, FNP', role: 'Primary Care Physician' },
-    { name: 'Rae Ann Meneses', role: 'Medical Assistant' },
-    { name: 'Rodolfo Leveriza', role: 'Behavioral Health Technician' },
-    { name: 'Ricardo Santana', role: 'Behavioral Health Technician' }
+    { name: 'Anne Leveriza', role: 'LPC & BHP' },
+    { name: 'Anna Manalo, FNP', role: 'Primary Care Physician' }
   ];
 
   const socialLinks = [
@@ -83,19 +80,19 @@ const Footer = () => {
 
               <div className="space-y-3">
                 <a
-                  href="mailto:novacareclinicllc@gmail.com"
+                  href="mailto:info@novacareclinic.health"
                   className="flex items-center gap-3 text-gray-600 hover:text-primary transition-micro group"
                 >
                   <Icon name="EnvelopeIcon" size={20} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="font-medium">novacareclinicllc@gmail.com</span>
+                  <span className="font-medium">info@novacareclinic.health</span>
                 </a>
 
                 <a
-                  href="tel:602-399-1404"
+                  href="tel:602-556-8120"
                   className="flex items-center gap-3 text-gray-600 hover:text-primary transition-micro group"
                 >
                   <Icon name="PhoneIcon" size={20} className="flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="font-bold text-lg">602-399-1404</span>
+                  <span className="font-bold text-lg">602-556-8120</span>
                 </a>
 
                 <div className="flex items-start gap-3 text-gray-600">
@@ -110,11 +107,11 @@ const Footer = () => {
               {/* Hours */}
               <div className="space-y-2">
                 <h4 className="font-semibold text-gray-900">Clinic Hours</h4>
-                <p className="text-sm text-gray-600">Monday-Friday: 8:00 AM - 5:00 PM</p>
+                <p className="text-sm text-gray-600">Monday-Friday: 9:00 AM - 5:00 PM</p>
                 <p className="text-sm text-gray-600">Saturday-Sunday: Closed</p>
 
                 <h4 className="font-semibold text-gray-900 mt-3">Administrative Hours</h4>
-                <p className="text-sm text-gray-600">Monday-Friday: 8:00 AM - 4:00 PM</p>
+                <p className="text-sm text-gray-600">Monday-Friday: 9:00 AM - 4:00 PM</p>
                 <p className="text-sm text-gray-600">Saturday-Sunday: Closed</p>
               </div>
             </div>

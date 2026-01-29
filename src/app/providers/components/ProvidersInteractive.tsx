@@ -63,12 +63,12 @@ const ProvidersInteractive = () => {
     },
     {
       id: 'anne-leveriza',
-      name: 'Anne Vargas-Leveriza',
-      title: 'Behavioral Health Professional',
-      credentials: ['Licensed Behavioral Health Professional'],
+      name: 'Anne Leveriza',
+      title: 'Licensed Professional Counselor & Behavioral Health Professional',
+      credentials: ['LPC', 'BHP'],
       specialties: ['Individual Therapy', 'Behavioral Health Counseling', 'Care Coordination', 'Crisis Intervention'],
       image: "/assets/images/Anne Leverizafinal.jpeg",
-      alt: 'Anne Vargas-Leveriza - Behavioral Health Professional',
+      alt: 'Anne Leveriza - LPC and BHP',
       languages: ['English'],
       bio: 'Anne specializes in behavioral health counseling and individual therapy services. Her warm and empathetic approach helps patients feel comfortable while working through their mental health challenges.',
       education: ['Masters in Behavioral Health', 'Licensed Professional Counselor'],
@@ -89,58 +89,6 @@ const ProvidersInteractive = () => {
       education: ['Healthcare Administration'],
       experience: 8
     },
-    {
-      id: 'irene-gaccion',
-      name: 'Irene Gaccion',
-      title: 'Case Manager',
-      credentials: ['Case Manager'],
-      specialties: ['Care Coordination', 'Resource Navigation', 'Patient Support'],
-      image: "/assets/images/no_image.png",
-      alt: 'Irene Gaccion - Case Manager',
-      languages: ['English'],
-      bio: 'Irene assists patients in navigating their care journey, connecting them with community resources and ensuring they have the support systems needed for recovery.',
-      education: ['Social Work'],
-      experience: 5
-    },
-    {
-      id: 'rae-ann-meneses',
-      name: 'Rae Ann Meneses',
-      title: 'Medical Assistant',
-      credentials: ['CMA'],
-      specialties: ['Vitals Monitoring', 'Patient Intake', 'Clinical Support'],
-      image: "/assets/images/no_image.png",
-      alt: 'Rae Ann Meneses - Medical Assistant',
-      languages: ['English'],
-      bio: 'Rae Ann provides essential clinical support, ensuring patient vitals are accurate and assisting providers during examinations and treatments.',
-      education: ['Certified Medical Assistant'],
-      experience: 6
-    },
-    {
-      id: 'rodolfo-leveriza',
-      name: 'Rodolfo Leveriza',
-      title: 'Behavioral Health Technician',
-      credentials: ['BHT'],
-      specialties: ['Patient Monitoring', 'Group Support', 'Crisis Support'],
-      image: "/assets/images/no_image.png",
-      alt: 'Rodolfo Leveriza - Behavioral Health Technician',
-      languages: ['English'],
-      bio: 'Rodolfo works directly with patients to support their treatment goals, providing mentorship and monitoring in a therapeutic environment.',
-      education: ['BHT Certification'],
-      experience: 4
-    },
-    {
-      id: 'ricardo-santana',
-      name: 'Ricardo Santana',
-      title: 'Behavioral Health Technician',
-      credentials: ['BHT'],
-      specialties: ['Patient Support', 'Safety Monitoring', 'Activity Coordination'],
-      image: "/assets/images/no_image.png",
-      alt: 'Ricardo Santana - Behavioral Health Technician',
-      languages: ['English'],
-      bio: 'Ricardo is dedicated to creating a safe and supportive environment for all patients, assisting with daily activities and therapeutic programs.',
-      education: ['BHT Certification'],
-      experience: 3
-    }
   ];
 
   const isClinicalStaff = (provider: Provider) => {

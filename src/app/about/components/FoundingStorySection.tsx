@@ -21,7 +21,7 @@ const FoundingStorySection = ({ className = '' }: FoundingStorySectionProps) => 
     {
       year: '2025',
       title: 'Infrastructure Development',
-      description: 'Implemented Practice Fusion EHR, established HIPAA-compliant systems, and finalized operational workflows.'
+      description: 'Implemented Simple Practice EHR, established HIPAA-compliant systems, and finalized operational workflows.'
     },
     {
       year: '2025',
@@ -80,7 +80,7 @@ const FoundingStorySection = ({ className = '' }: FoundingStorySectionProps) => 
           <div className="space-y-6">
             <div className="rounded-2xl overflow-hidden shadow-healing">
               <AppImage
-                src="https://images.unsplash.com/photo-1666214280577-5f90bc36be92"
+                src="/images/about/IMG_6975.jpeg"
                 alt="Hispanic female doctor in white coat smiling warmly while reviewing patient charts in modern medical office"
                 className="w-full h-64 object-cover" />
 
@@ -89,14 +89,14 @@ const FoundingStorySection = ({ className = '' }: FoundingStorySectionProps) => 
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-xl overflow-hidden shadow-soft">
                 <AppImage
-                  src="https://images.unsplash.com/photo-1573497161854-72447225081d"
+                  src="/images/about/IMG_6976.jpeg"
                   alt="Diverse group of healthcare professionals collaborating around conference table in bright meeting room"
                   className="w-full h-32 object-cover" />
 
               </div>
               <div className="rounded-xl overflow-hidden shadow-soft">
                 <AppImage
-                  src="https://images.unsplash.com/photo-1734787277873-b9b25ec2196d"
+                  src="/images/about/IMG_6977.jpeg"
                   alt="Modern medical clinic waiting area with comfortable seating and natural lighting creating welcoming atmosphere"
                   className="w-full h-32 object-cover" />
 

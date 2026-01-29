@@ -45,10 +45,21 @@ const MissionSection = ({ className = '' }: MissionSectionProps) => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-primary/5 rounded-2xl p-8 lg:p-12 border border-primary/10">
               <blockquote className="font-accent text-xl lg:text-2xl text-text-primary italic leading-relaxed mb-6">
-                "NovaCare Clinic provides integrated behavioral health care for Arizona's underserved communities, combining mental health services with primary care in a compassionate, accessible setting."
+                "To deliver integrated, accessible, and high-quality outpatient care—combining psychiatry, behavioral health, primary care, and case management—that improves outcomes through compassionate, evidence-based, patient-centered treatment, strong care coordination, and timely follow-through."
               </blockquote>
               <p className="font-body text-text-secondary">
-                — NovaCare Clinic Mission Statement
+                — NovaCare Clinic Mission
+              </p>
+            </div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto mt-8">
+            <div className="bg-secondary/5 rounded-2xl p-8 lg:p-12 border border-secondary/10">
+              <blockquote className="font-accent text-xl lg:text-2xl text-text-primary italic leading-relaxed mb-6">
+                "To become Arizona's most trusted, referral-ready integrated clinic, known for rapid access, safe and coordinated whole-person care, and measurable improvement in patients' mental and physical health—setting the standard for outpatient quality, professionalism, and reliability."
+              </blockquote>
+              <p className="font-body text-text-secondary">
+                — NovaCare Clinic Vision
               </p>
             </div>
           </div>

@@ -110,7 +110,7 @@ const CrisisResourcesSection = ({ resources }: CrisisResourcesSectionProps) => {
           If you are experiencing a medical emergency, call 911 immediately.
         </p>
         <p className="text-xs text-muted-foreground mb-3">
-          For non-emergency mental health support, contact our clinic at (602) 399-1404 during business hours.
+          For non-emergency mental health support, contact our clinic at (602) 556-8120 during business hours.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link

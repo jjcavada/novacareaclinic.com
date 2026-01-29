@@ -421,11 +421,11 @@ const ScheduleAppointmentInteractive = () => {
 
             <div className="flex items-center gap-4">
               <a
-                href="tel:602-399-1404"
+                href="tel:602-556-8120"
                 className="flex items-center gap-2 text-primary hover:text-primary/80 transition-micro"
               >
                 <Icon name="PhoneIcon" size={16} />
-                <span className="text-sm font-medium">Need help? Call (602) 399-1404</span>
+                <span className="text-sm font-medium">Need help? Call (602) 556-8120</span>
               </a>
             </div>
 
@@ -490,7 +490,7 @@ const ScheduleAppointmentInteractive = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <span>NovaCare Crisis Line:</span>
-                      <a href="tel:602-399-1404" className="font-semibold text-accent hover:underline">(602) 399-1404</a>
+                      <a href="tel:602-556-8120" className="font-semibold text-accent hover:underline">(602) 556-8120</a>
                     </div>
                     <div className="flex items-center justify-between">
                       <span>Emergency Services:</span>

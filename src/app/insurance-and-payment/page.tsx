@@ -194,9 +194,9 @@ export default function InsuranceAndPaymentPage() {
 
             <div className="mt-8 bg-primary-foreground/10 rounded-lg p-4">
               <p className="text-primary-foreground/90 text-sm">
-                <strong>Financial Counseling Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM |
-                <strong> Phone:</strong> (602) 399-1404 |
-                <strong> Email:</strong> novacareclinicllc@gmail.com
+                <strong>Financial Counseling Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM |
+                <strong> Phone:</strong> (602) 556-8120 |
+                <strong> Email:</strong> info@novacareclinic.health
               </p>
             </div>
           </div>

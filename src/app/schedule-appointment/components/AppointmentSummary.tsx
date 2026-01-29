@@ -187,7 +187,7 @@ const AppointmentSummary = ({ appointmentDetails, onEdit }: AppointmentSummaryPr
             </li>
             <li className="flex items-start gap-2">
               <Icon name="PhoneIcon" size={14} className="text-warning mt-0.5 flex-shrink-0" />
-              <span>Call (602) 399-1404 if you need to reschedule or cancel</span>
+              <span>Call (602) 556-8120 if you need to reschedule or cancel</span>
             </li>
           </ul>
         </div>
