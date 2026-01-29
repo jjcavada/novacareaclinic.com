@@ -22,7 +22,7 @@ const TeamIntroSection = ({ className = '' }: TeamIntroSectionProps) => {
       experience: '15+ years in psychiatry'
     },
     {
-      name: 'Anne Leveriza',
+      name: 'Anne Leveriza, LPC and BHP',
       role: 'Behavioral Health Professional',
       specialty: 'Individual Therapy & Behavioral Health Counseling',
       image: "/assets/images/Anne Leverizafinal.jpeg",

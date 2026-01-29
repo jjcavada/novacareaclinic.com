@@ -73,7 +73,7 @@ const providersJsonLd = {
       position: 3,
       item: {
         '@type': 'Person',
-        name: 'Anne Leveriza',
+        name: 'Anne Leveriza, LPC and BHP',
         jobTitle: 'Behavioral Health Professional',
         description: 'Licensed Behavioral Health Professional specializing in individual therapy, behavioral health counseling, and crisis intervention.',
         knowsLanguage: ['English'],

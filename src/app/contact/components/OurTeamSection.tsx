@@ -23,8 +23,8 @@ const OurTeamSection = ({ className = '' }: OurTeamSectionProps) => {
       icon: 'UserIcon'
     },
     {
-      id: 'anne-vargas-leveriza',
-      name: 'Anne Vargas-Leveriza',
+      id: 'anne-leveriza',
+      name: 'Anne Leveriza, LPC and BHP',
       title: 'Behavioral Health Professional',
       specialty: 'Behavioral Health & Counseling',
       icon: 'HeartIcon'

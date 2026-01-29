@@ -37,7 +37,7 @@ const ProviderSpotlight = ({ className = '' }: ProviderSpotlightProps) => {
     },
     {
       id: 2,
-      name: "Anne Leveriza",
+      name: "Anne Leveriza, LPC and BHP",
       title: "Behavioral Health Professional",
       specialties: ["Individual Therapy", "Behavioral Health Counseling", "Care Coordination"],
       image: "/assets/images/Anne Leverizafinal.jpeg",

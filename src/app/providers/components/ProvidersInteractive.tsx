@@ -63,7 +63,7 @@ const ProvidersInteractive = () => {
     },
     {
       id: 'anne-leveriza',
-      name: 'Anne Leveriza',
+      name: 'Anne Leveriza, LPC and BHP',
       title: 'Licensed Professional Counselor & Behavioral Health Professional',
       credentials: ['LPC', 'BHP'],
       specialties: ['Individual Therapy', 'Behavioral Health Counseling', 'Care Coordination', 'Crisis Intervention'],

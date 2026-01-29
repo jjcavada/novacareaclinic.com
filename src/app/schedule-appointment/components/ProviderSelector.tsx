@@ -47,8 +47,8 @@ const ProviderSelector = ({ selectedProvider, onProviderSelect, appointmentType 
       languages: ['English', 'Spanish']
     },
     {
-      id: 'anne-vargas-leveriza',
-      name: 'Anne Vargas-Leveriza',
+      id: 'anne-leveriza',
+      name: 'Anne Leveriza, LPC and BHP',
       title: 'Behavioral Health Professional',
       specialties: ['Individual Therapy', 'Behavioral Health Counseling', 'Care Coordination'],
       image: "/assets/images/Anne Leverizafinal.jpeg",

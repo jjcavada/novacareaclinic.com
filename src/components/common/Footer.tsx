@@ -32,7 +32,7 @@ const Footer = () => {
   const teamMembers = [
     { name: 'Meriam Arguillo', role: 'Administrator' },
     { name: 'Dr. Leticia Jacinto', role: 'Psychiatrist' },
-    { name: 'Anne Leveriza', role: 'LPC & BHP' },
+    { name: 'Anne Leveriza, LPC and BHP', role: 'LPC & BHP' },
     { name: 'Anna Manalo, FNP', role: 'Primary Care Physician' }
   ];
 
